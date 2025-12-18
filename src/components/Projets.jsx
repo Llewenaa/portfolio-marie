@@ -42,27 +42,55 @@ export default function Projets() {
   const [projetSelectionne, setProjetSelectionne] = useState(null);
 
   return (
-    <section id="projets" style={{ padding: '60px 20px', backgroundColor: '#ffffff', position: 'relative' }}>
-      <h2 style={{ textAlign: 'center', color: '#635147', marginBottom: '40px', fontSize: '2rem', letterSpacing: '0.2em', fontFamily: 'inherit', fontWeight: 'bold' }}>
+    <section id="projets" style={{ padding: '80px 20px', backgroundColor: '#ffffff' }}>
+      {/* Titre avec police élégante */}
+      <h2 style={{ 
+        textAlign: 'center', 
+        color: '#635147', 
+        marginBottom: '60px', 
+        fontSize: '2.5rem', 
+        letterSpacing: '0.15em', 
+        fontFamily: "'Playfair Display', serif", // Police élégante
+        fontWeight: 'bold' 
+      }}>
         MES PROJETS
       </h2>
 
-      {/* GRILLE DES PROJETS */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', alignItems: 'center' }}>
+      {/* GRILLE DES PROJETS RESPONSIVE (Grâce à Tailwind) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {projetsData.map((projet) => (
           <div key={projet.id} style={{
-            width: '100%', maxWidth: '500px', backgroundColor: '#ffffff', borderRadius: '25px',
-            padding: '30px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0', textAlign: 'center'
+            backgroundColor: '#ffffff', 
+            borderRadius: '35px',
+            padding: '30px', 
+            boxShadow: '0 15px 35px rgba(0,0,0,0.05)', 
+            border: '1px solid #e2e8f0', 
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
           }}>
-            <div style={{ width: '100%', aspectRatio: '1/1', borderRadius: '15px', marginBottom: '20px', overflow: 'hidden', backgroundColor: '#FDF2F0' }}>
-              <img src={projet.image} alt={projet.titre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div>
+              <div style={{ width: '100%', aspectRatio: '1/1', borderRadius: '25px', marginBottom: '25px', overflow: 'hidden', backgroundColor: '#FDF2F0' }}>
+                <img src={projet.image} alt={projet.titre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              <h3 style={{ fontSize: '1.6rem', color: '#635147', marginBottom: '12px', fontFamily: "'Playfair Display', serif" }}>{projet.titre}</h3>
+              <p style={{ color: '#64748b', marginBottom: '25px', fontStyle: 'italic', fontFamily: "'Lora', serif", fontSize: '1.05rem' }}>{projet.desc}</p>
             </div>
-            <h3 style={{ fontSize: '1.5rem', color: '#635147', marginBottom: '10px' }}>{projet.titre}</h3>
-            <p style={{ color: '#64748b', marginBottom: '20px', fontStyle: 'italic' }}>{projet.desc}</p>
             
             <button 
               onClick={() => setProjetSelectionne(projet)}
-              style={{ padding: '10px 25px', borderRadius: '50px', border: '1px solid #635147', background: 'none', color: '#635147', cursor: 'pointer', fontWeight: 'bold' }}
+              style={{ 
+                padding: '12px 30px', 
+                borderRadius: '50px', 
+                border: '1.5px solid #7BA6C6', // Ton bleu pour le bouton
+                background: 'none', 
+                color: '#7BA6C6', 
+                cursor: 'pointer', 
+                fontWeight: 'bold',
+                transition: 'all 0.3s ease',
+                fontFamily: "'Montserrat', sans-serif"
+              }}
             >
               En savoir plus
             </button>
@@ -70,7 +98,7 @@ export default function Projets() {
         ))}
       </div>
 
-      {/* LA MODALE : CENTRAGE ABSOLU ET EFFET BLUR */}
+      {/* LA MODALE : CENTRAGE ABSOLU ET SÉCURITÉ DES BORDS */}
 {projetSelectionne && (
   <div 
     onClick={() => setProjetSelectionne(null)} 
@@ -78,30 +106,30 @@ export default function Projets() {
       position: 'fixed', 
       top: 0, 
       left: 0, 
-      width: '100%', 
-      height: '100%',
+      width: '100vw', // Utilisation de vw/vh pour couvrir tout l'écran
+      height: '100vh',
       backgroundColor: 'rgba(255, 255, 255, 0.4)', 
       backdropFilter: 'blur(12px)',
       WebkitBackdropFilter: 'blur(12px)',
       display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center', 
+      alignItems: 'center', // Centre verticalement
+      justifyContent: 'center', // Centre horizontalement
       zIndex: 9999, 
-      padding: '20px'
+      padding: '20px' // Cette marge empêche la carte de toucher les bords de l'écran
     }}
   >
     <div 
       onClick={(e) => e.stopPropagation()} 
       style={{
         backgroundColor: 'white', 
-        width: '100%', 
-        maxWidth: '600px', 
-        maxHeight: '85vh', 
+        width: 'calc(100% - 40px)', // Prend toute la place moins les marges
+        maxWidth: '650px', // Mais ne dépasse jamais 650px sur ordinateur
+        maxHeight: '85vh', // Ne touche jamais le haut ou le bas (laisse 7.5% de vide en haut et en bas)
         borderRadius: '35px', 
         padding: '30px', 
         position: 'relative',
-        overflowY: 'auto', // Permet de scroller à l'intérieur de la card
-        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.2)',
+        overflowY: 'auto', // Permet de scroller si le texte est long
+        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.15)',
         display: 'flex',
         flexDirection: 'column'
       }}
@@ -118,20 +146,22 @@ export default function Projets() {
         ✕
       </button>
 
-      {/* Image de tête */}
-     <img 
-  src={projetSelectionne.imagePopup || projetSelectionne.image} 
-  style={{ width: '100%', borderRadius: '20px', marginBottom: '20px', flexShrink: 0 }} 
-  alt="différents projets" 
-/>
+      {/* Image */}
+      <img 
+        src={projetSelectionne.imagePopup || projetSelectionne.image} 
+        style={{ width: '100%', borderRadius: '20px', marginBottom: '20px', flexShrink: 0 }} 
+        alt="" 
+      />
 
-      {/* Texte */}
-      <h2 style={{ color: '#635147', marginBottom: '15px', fontFamily: 'inherit', fontSize: '1.5rem' }}>{projetSelectionne.titre}</h2>
-      <p style={{ color: '#635147', lineHeight: '1.6', textAlign: 'left' }}>
+      {/* Contenu texte */}
+      <h2 style={{ color: '#635147', marginBottom: '15px', fontFamily: "'Playfair Display', serif" }}>
+        {projetSelectionne.titre}
+      </h2>
+      <p style={{ color: '#475569', lineHeight: '1.6', textAlign: 'left', fontFamily: "'Lora', serif" }}>
         {projetSelectionne.details || projetSelectionne.desc}
       </p>
 
-      {/* Bouton pour fermer en bas (plus pratique sur mobile) */}
+      {/* Bouton Fermer en bas pour l'accessibilité mobile */}
       <button 
         onClick={() => setProjetSelectionne(null)}
         style={{ 
@@ -140,7 +170,7 @@ export default function Projets() {
           fontWeight: 'bold', cursor: 'pointer', flexShrink: 0 
         }}
       >
-        Fermer
+        Retour
       </button>
     </div>
   </div>

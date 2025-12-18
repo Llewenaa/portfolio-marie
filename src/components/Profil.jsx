@@ -56,7 +56,7 @@ export default function Profil() {
   >
     Marie, développeuse web passionnée par l'empathie numérique
   </h3>
-  <br></br>
+  
   <p 
     className="text-lg md:text-xl italic"
     style={{ 
