@@ -90,82 +90,85 @@ export default function Projets() {
         ))}
       </div>
 
-      {/* MODALE */}
-      {projetSelectionne && (
-        <div 
-          onClick={() => setProjetSelectionne(null)} 
-          style={{
-            position: 'fixed', 
-            top: 0, 
-            left: 0, 
-            right: 0, 
-            bottom: 0, 
-            width: '390px', 
-            height: '100vh',
-            backgroundColor: 'rgba(255, 255, 255, 0.4)', 
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            zIndex: 9999, 
-            padding: '20px' 
-          }}
-        >
-          <div 
-            onClick={(e) => e.stopPropagation()} 
-            style={{
-              backgroundColor: 'white', 
-              width: '90%', 
-              maxWidth: '650px', 
-              maxHeight: '85vh', 
-              borderRadius: '35px', 
-              padding: '30px', 
-              position: 'relative',
-              overflowY: 'auto', 
-              boxShadow: '0 25px 50px -12px rgba(0,0,0,0.15)',
-              display: 'flex',
-              flexDirection: 'column',
-              margin: 'auto' 
-            }}
-          >
-            <button 
-              onClick={() => setProjetSelectionne(null)}
-              style={{ 
-                position: 'absolute', top: '15px', right: '15px', border: 'none', 
-                background: '#7BA6C6', borderRadius: '50%', width: '35px', height: '35px', 
-                cursor: 'pointer', zIndex: 10, color: 'white'
-              }}
-            >
-              ✕
-            </button>
+      {/* MODALE : SANS EFFET DE FLOU */}
+{projetSelectionne && (
+  <div 
+    onClick={() => setProjetSelectionne(null)} 
+    style={{
+      position: 'fixed', 
+      top: 0, 
+      left: 0, 
+      right: 0, 
+      bottom: 0, 
+      width: '100%', 
+      height: '100%',
+      // On augmente légèrement l'opacité (0.6) pour compenser l'absence de flou
+      backgroundColor: 'rgba(0, 0, 0, 0.6)', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      zIndex: 9999, 
+      padding: '20px' 
+    }}
+  >
+    <div 
+      onClick={(e) => e.stopPropagation()} 
+      style={{
+        backgroundColor: 'white', 
+        width: '90%', 
+        maxWidth: '650px', 
+        maxHeight: '85vh', 
+        borderRadius: '35px', 
+        padding: '30px', 
+        position: 'relative',
+        overflowY: 'auto', 
+        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', // Ombre plus marquée pour le contraste
+        display: 'flex',
+        flexDirection: 'column',
+        margin: 'auto' 
+      }}
+    >
+      {/* Bouton Fermer */}
+      <button 
+        onClick={() => setProjetSelectionne(null)}
+        style={{ 
+          position: 'absolute', top: '15px', right: '15px', border: 'none', 
+          background: '#7BA6C6', borderRadius: '50%', width: '35px', height: '35px', 
+          cursor: 'pointer', zIndex: 10, color: 'white'
+        }}
+      >
+        ✕
+      </button>
 
-            <img 
-              src={projetSelectionne.imagePopup || projetSelectionne.image} 
-              style={{ width: '100%', borderRadius: '20px', marginBottom: '20px' }} 
-              alt={projetSelectionne.titre} 
-            />
+      {/* Image */}
+      <img 
+        src={projetSelectionne.imagePopup || projetSelectionne.image} 
+        style={{ width: '100%', borderRadius: '20px', marginBottom: '20px' }} 
+        alt={projetSelectionne.titre} 
+      />
 
-            <h2 style={{ color: '#635147', marginBottom: '15px', fontFamily: "'Playfair Display', serif" }}>
-              {projetSelectionne.titre}
-            </h2>
-            <p style={{ color: '#475569', lineHeight: '1.6', textAlign: 'left', fontFamily: "'Lora', serif" }}>
-              {projetSelectionne.details}
-            </p>
+      {/* Contenu texte */}
+      <h2 style={{ color: '#635147', marginBottom: '15px', fontFamily: "'Playfair Display', serif" }}>
+        {projetSelectionne.titre}
+      </h2>
+      <p style={{ color: '#475569', lineHeight: '1.6', textAlign: 'left', fontFamily: "'Lora', serif" }}>
+        {projetSelectionne.details}
+      </p>
 
-            <button 
-              onClick={() => setProjetSelectionne(null)}
-              style={{ 
-                marginTop: '25px', padding: '15px', borderRadius: '15px', 
-                border: 'none', backgroundColor: '#7BA6C6', color: 'white', 
-                fontWeight: 'bold', cursor: 'pointer' 
-              }}
-            >
-              Retour
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Bouton Retour */}
+      <button 
+        onClick={() => setProjetSelectionne(null)}
+        style={{ 
+          marginTop: '25px', padding: '15px', borderRadius: '15px', 
+          border: 'none', backgroundColor: '#7BA6C6', color: 'white', 
+          fontWeight: 'bold', cursor: 'pointer' 
+        }}
+      >
+        Retour
+      </button>
+    </div>
+  </div>
+)}
     </section>
   );
 }
