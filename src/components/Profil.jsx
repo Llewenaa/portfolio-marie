@@ -10,7 +10,7 @@ export default function Profil() {
         
         {/* Card */}
         <div style={{ 
-          backgroundColor: '#F3F0FA', 
+          backgroundColor: 'rgba(235, 168, 213, 0.2)', 
           padding: '40px', 
           borderRadius: '50px',
           border: '1px solid rgba(123, 166, 198, 0.2)',
@@ -31,8 +31,9 @@ export default function Profil() {
               borderRadius: '50%', 
               overflow: 'hidden',
               border: '4px solid white',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-              shapeOutside: 'circle(50%)' 
+              boxShadow: '0 4px 6px #7BA6C6',
+              shapeOutside: 'circle(50%)', 
+              backgroundColor: '#7BA6C6'
             }}
           >
             <img 
@@ -47,7 +48,7 @@ export default function Profil() {
   <h3 
     className="text-2xl md:text-4xl mb-4"
     style={{ 
-      fontFamily: 'Georgia, serif', 
+      fontFamily: 'Montserrat, sans-serif, light', 
       fontWeight: '900', 
       color: '#6a1b50',
       lineHeight: '1.2'
@@ -55,11 +56,11 @@ export default function Profil() {
   >
     Marie, développeuse web passionnée par l'empathie numérique
   </h3>
-  
+  <br></br>
   <p 
     className="text-lg md:text-xl italic"
     style={{ 
-      fontFamily: '"Times New Roman", Times, serif', 
+      fontFamily: 'Inter, sans-serif, light', 
       color: '#334155',
       lineHeight: '1.8',
       opacity: '0.9'
