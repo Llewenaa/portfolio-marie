@@ -41,7 +41,7 @@ const projetsData = [
 export default function Projets() {
   const [projetSelectionne, setProjetSelectionne] = useState(null);
 
-  // Empêche le scroll du site quand le pop-up est ouvert
+  // Empêche le scroll du site principal quand la page projet est ouverte
   useEffect(() => {
     if (projetSelectionne) {
       document.body.style.overflow = 'hidden';
@@ -63,7 +63,7 @@ export default function Projets() {
         MES PROJETS
       </h2>
 
-      {/* GRILLE RESPONSIVE */}
+      {/* GRILLE DES PROJETS */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {projetsData.map((projet) => (
           <div key={projet.id} style={{
@@ -90,85 +90,94 @@ export default function Projets() {
         ))}
       </div>
 
-      {/* MODALE : SANS EFFET DE FLOU */}
-{projetSelectionne && (
-  <div 
-    onClick={() => setProjetSelectionne(null)} 
-    style={{
-      position: 'fixed', 
-      top: 0, 
-      left: 0, 
-      right: 0, 
-      bottom: 0, 
-      width: '100%', 
-      height: '100%',
-      // On augmente légèrement l'opacité (0.6) pour compenser l'absence de flou
-      backgroundColor: 'rgba(0, 0, 0, 0.6)', 
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center', 
-      zIndex: 9999, 
-      padding: '20px' 
-    }}
-  >
-    <div 
-      onClick={(e) => e.stopPropagation()} 
-      style={{
-        backgroundColor: 'white', 
-        width: '90%', 
-        maxWidth: '650px', 
-        maxHeight: '85vh', 
-        borderRadius: '35px', 
-        padding: '30px', 
-        position: 'relative',
-        overflowY: 'auto', 
-        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', // Ombre plus marquée pour le contraste
-        display: 'flex',
-        flexDirection: 'column',
-        margin: 'auto' 
-      }}
-    >
-      {/* Bouton Fermer */}
-      <button 
-        onClick={() => setProjetSelectionne(null)}
-        style={{ 
-          position: 'absolute', top: '15px', right: '15px', border: 'none', 
-          background: '#7BA6C6', borderRadius: '50%', width: '35px', height: '35px', 
-          cursor: 'pointer', zIndex: 10, color: 'white'
-        }}
-      >
-        ✕
-      </button>
+      {/* FENÊTRE COMPLÈTE (FULLSCREEN) */}
+      {projetSelectionne && (
+        <div 
+          style={{
+            position: 'fixed', 
+            top: 0, 
+            left: 0, 
+            width: '100vw', 
+            height: '100vh',
+            backgroundColor: '#ffffff', 
+            zIndex: 9999, 
+            overflowY: 'auto', 
+            display: 'block'
+          }}
+        >
+          {/* Bouton fermer flottant en haut à droite */}
+          <button 
+            onClick={() => setProjetSelectionne(null)}
+            style={{ 
+              position: 'fixed', top: '30px', right: '30px', border: 'none', 
+              background: '#7BA6C6', borderRadius: '50%', width: '50px', height: '50px', 
+              cursor: 'pointer', zIndex: 10000, color: 'white', fontSize: '1.5rem',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+            }}
+          >
+            ✕
+          </button>
 
-      {/* Image */}
-      <img 
-        src={projetSelectionne.imagePopup || projetSelectionne.image} 
-        style={{ width: '100%', borderRadius: '20px', marginBottom: '20px' }} 
-        alt={projetSelectionne.titre} 
-      />
+          {/* CONTENU DE LA PAGE */}
+          <div style={{ maxWidth: '900px', margin: '0 auto', padding: '100px 20px 100px 20px' }}>
+            
+            {/* Titre géant */}
+            <h2 style={{ 
+              color: '#635147', 
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
+              textAlign: 'center',
+              marginBottom: '40px', 
+              fontFamily: "'Playfair Display', serif" 
+            }}>
+              {projetSelectionne.titre}
+            </h2>
 
-      {/* Contenu texte */}
-      <h2 style={{ color: '#635147', marginBottom: '15px', fontFamily: "'Playfair Display', serif" }}>
-        {projetSelectionne.titre}
-      </h2>
-      <p style={{ color: '#475569', lineHeight: '1.6', textAlign: 'left', fontFamily: "'Lora', serif" }}>
-        {projetSelectionne.details}
-      </p>
+            {/* Image principale */}
+            <img 
+              src={projetSelectionne.imagePopup || projetSelectionne.image} 
+              style={{ width: '100%', borderRadius: '40px', marginBottom: '50px' }} 
+              alt={projetSelectionne.titre} 
+            />
 
-      {/* Bouton Retour */}
-      <button 
-        onClick={() => setProjetSelectionne(null)}
-        style={{ 
-          marginTop: '25px', padding: '15px', borderRadius: '15px', 
-          border: 'none', backgroundColor: '#7BA6C6', color: 'white', 
-          fontWeight: 'bold', cursor: 'pointer' 
-        }}
-      >
-        Retour
-      </button>
-    </div>
-  </div>
-)}
+            {/* Détails du projet */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+              <div style={{ borderLeft: '4px solid #7BA6C6', paddingLeft: '20px' }}>
+                <h4 style={{ color: '#7BA6C6', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '2px', marginBottom: '10px' }}>
+                  Mission
+                </h4>
+                <p style={{ fontSize: '1.2rem', color: '#635147', fontWeight: '500' }}>
+                  {projetSelectionne.mission}
+                </p>
+              </div>
+
+              <p style={{ 
+                color: '#475569', 
+                lineHeight: '1.8', 
+                fontSize: '1.15rem', 
+                fontFamily: "'Lora', serif",
+                textAlign: 'justify'
+              }}>
+                {projetSelectionne.details}
+              </p>
+            </div>
+
+            {/* BOUTON FERMER EN BAS DE PAGE */}
+            <div style={{ textAlign: 'center', marginTop: '80px', paddingTop: '40px', borderTop: '1px solid #eee' }}>
+              <button 
+                onClick={() => setProjetSelectionne(null)}
+                style={{ 
+                  padding: '20px 60px', borderRadius: '50px', border: 'none', 
+                  backgroundColor: '#635147', color: 'white', fontWeight: 'bold', 
+                  fontSize: '1.1rem', cursor: 'pointer',
+                  boxShadow: '0 10px 25px rgba(99, 81, 71, 0.2)'
+                }}
+              >
+                Fermer et revenir aux projets
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
