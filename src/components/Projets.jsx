@@ -90,7 +90,7 @@ export default function Projets() {
         ))}
       </div>
 
-      {/* MODALE : CORRIGÉE POUR LE CENTRAGE PARFAIT */}
+      {/* MODALE */}
       {projetSelectionne && (
         <div 
           onClick={() => setProjetSelectionne(null)} 
@@ -98,16 +98,16 @@ export default function Projets() {
             position: 'fixed', 
             top: 0, 
             left: 0, 
-            right: 0, // Force l'étalement horizontal
-            bottom: 0, // Force l'étalement vertical
-            width: '100%', 
-            height: '100%',
+            right: 0, 
+            bottom: 0, 
+            width: '390px', 
+            height: '100vh',
             backgroundColor: 'rgba(255, 255, 255, 0.4)', 
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
             display: 'flex', 
-            alignItems: 'center', // Milieu vertical
-            justifyContent: 'center', // Milieu horizontal
+            alignItems: 'center', 
+            justifyContent: 'center', 
             zIndex: 9999, 
             padding: '20px' 
           }}
@@ -116,7 +116,7 @@ export default function Projets() {
             onClick={(e) => e.stopPropagation()} 
             style={{
               backgroundColor: 'white', 
-              width: '90%', // Sécurité pour mobile
+              width: '90%', 
               maxWidth: '650px', 
               maxHeight: '85vh', 
               borderRadius: '35px', 
@@ -126,7 +126,7 @@ export default function Projets() {
               boxShadow: '0 25px 50px -12px rgba(0,0,0,0.15)',
               display: 'flex',
               flexDirection: 'column',
-              margin: 'auto' // Aide au centrage sur certains navigateurs
+              margin: 'auto' 
             }}
           >
             <button 
