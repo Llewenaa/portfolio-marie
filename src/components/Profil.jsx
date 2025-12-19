@@ -60,7 +60,8 @@ export default function Profil() {
   <p 
     className="text-lg md:text-xl italic"
     style={{ 
-      fontFamily: 'Inter, sans-serif, light', 
+      fontFamily: 'lora, sans-serif, light', 
+      fontStyle: 'italic',
       color: '#334155',
       lineHeight: '1.8',
       opacity: '0.9'

@@ -10,8 +10,8 @@ import projet3 from '../assets/projet3.png';
 
 const projetsData = [
   { id: 1, titre: "Écho d'un Regard", desc: "Projet sur la santé mentale des adolescents", image: img1, imagePopup: projet1, details: "Ce site sert à comprendre son adolescent via les différents comportements qu’il peut avoir, se renseigner sur les structures effectives dans votre région, des professionnels pleinement au cœur de la vie des jeunes. ", mission: "Analyse des besoins, UI/UX Design, Illustration." },
-  { id: 2, titre: "Murmure de l'Océan", desc: "Projet de prévention marine", image: img2, imagePopup: projet2, details: "Une campagne de sensibilisation dédiée à la protection des écosystèmes marins...", mission: "Identité visuelle, Communication." },
-  { id: 3, titre: "Bien-être Animalier", desc: "Projet de stage pour une ostéopathe animalière", image: img3, imagePopup: projet3, details: "Conception d'un support de communication pour une ostéopathe animalière...", mission: "Mise en page, Photographie, Stratégie digitale." }
+  { id: 2, titre: "Murmure de l'Océan", desc: "Projet de prévention marine", image: img2, imagePopup: projet2, details: "Ce site est sur la prévention Océanique, c'est une sorte de campagne de sensibilisation dédiée à la protection des écosystèmes marins", mission: "Identité visuelle, Communication." },
+  { id: 3, titre: "Bien-être Animalier", desc: "Projet de stage pour une ostéopathe animalière", image: img3, imagePopup: projet3, details: "Conception d'un support de communication pour une ostéopathe animalière.", mission: "Mise en page, Photographie, Stratégie digitale." }
 ];
 
 export default function Projets() {
@@ -24,7 +24,7 @@ export default function Projets() {
   return (
     <section id="projets" style={{ padding: '80px 20px', backgroundColor: '#ffffff' }}>
       <h2 style={{ 
-        textAlign: 'center', color: '#475569', marginBottom: '80px', 
+        textAlign: 'center', color: '#635147', marginBottom: '80px', 
         fontSize: '2.5rem', fontFamily: "'Playfair Display', sans-serif", fontWeight: 'bold' 
       }}>
         MES PROJETS
