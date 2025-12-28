@@ -28,6 +28,8 @@ function App() {
         </div>
       </main>
 
+<div style={{ height: '200px', width: '100%' }}></div>
+
       <Footer />
     </div>
   );

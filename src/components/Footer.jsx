@@ -1,24 +1,53 @@
 import React from 'react';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import logo from '../assets/logo.png';  
+
 export default function Footer() {
   return (
-    <footer className="w-full bg-black/10 backdrop-blur-md p-6 mt-auto">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        
-        {/* Logo et Copyright */}
-        <div className="flex items-center gap-4">
-          <img src="/logo.png" alt="logo footer" className="h-12 w-12" />
-          <p className="text-sm text-white italic">
-            Copyright - Tous droits réservés - image par IA
-          </p>
-        </div>
+    <footer 
+      style={{ 
+        width: '100%',
+        borderTop: '1px solid #f3f4f6',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+    
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'row', 
+        gap: '35px', // Espace entre le logo et chaque icône
+        marginBottom: '10px',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+       
+        <img 
+          src={logo} 
+          alt="logo marie" 
+          style={{ height: '60px', width: '60px', opacity: 0.9 }} 
+        />
 
-        {/* Liens Sociaux */}
-        <div className="flex gap-6 text-white font-serif text-xl">
-          <a href="#" className="hover:text-[#C17D3E] transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-[#C17D3E] transition-colors">GitHub</a>
-          <a href="mailto:..." className="hover:text-[#C17D3E] transition-colors">Email</a>
-        </div>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin style={{ width: '35px', height: '35px', color: '#7BA6C6' }} />
+        </a>
         
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <FaGithub style={{ width: '35px', height: '35px', color: '#7BA6C6' }} />
+        </a>
+        
+        <a href="mailto:ton-email@exemple.com">
+          <FaEnvelope style={{ width: '35px', height: '35px', color: '#7BA6C6' }} />
+        </a>
+      </div>
+
+     
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <p style={{ color: 'black', fontSize: '14px', fontStyle: 'italic', fontFamily: 'sans-sérif' }}>
+          © {new Date().getFullYear()} — Marie Portfolio — Images par IA
+        </p>
       </div>
     </footer>
   );
