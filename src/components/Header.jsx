@@ -1,6 +1,7 @@
 import React from 'react'; 
 import logoImg from '../assets/logo.png'; 
 import { User, Palette, Send } from 'lucide-react';
+import { color } from 'framer-motion';
 
 export default function Header() {
   return (
@@ -51,10 +52,10 @@ export default function Header() {
 
       }}>
         <a href="#profil" title="Profil" style={linkStyle}>
-          <User size={24} color="#475569" />
+          <User size={24} color="white" />
         </a>
         <a href="#projets" title="Projets" style={linkStyle}>
-          <Palette size={24} color="#475569" />
+          <Palette size={24} color="white" />
         </a>
         <a 
           href="#contact" 
@@ -81,18 +82,15 @@ export default function Header() {
 } 
 
 const linkStyle = { 
-  display: 'flex', 
-  alignItems: 'center', 
-  textDecoration: 'none',
-  padding: '10px',
-  transition: 'transform 0.2s',
-  borderRadius: '50%',
-  backgroundColor: '#EBA8D5',
+   backgroundColor: '#EBA8D5',
+   color: 'white',
   width: '45px',
   height: '45px',
+  display: 'flex',
+  alignItems: 'center',
   justifyContent: 'center',
+  borderRadius: '50%',
   border: '2px solid #7BA6C6',
-  textDecoration: 'none',
   transition: 'all 0.3s ease',
   boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
 };
