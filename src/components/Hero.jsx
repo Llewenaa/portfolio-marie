@@ -53,29 +53,14 @@ export default function Hero() {
           padding: '50px'
         }}
       >
-        {/* --- TON TITRE ANIMÉ ICI ---
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 2.5 }} // Se lance après le loader
-          style={{ 
-            fontSize: '5.5rem', 
-            fontWeight: 'bold', 
-            color: '#6a1b50', 
-            margin: 0, 
-            fontFamily: "'Playfair Display', serif" 
-          }}
-        >
-          Marie
-        </motion.h1> */}
 
-        {/* --- TON SOUS-TITRE ANIMÉ --- */}
+        {/* SOUS-TITRE ANIMÉ */}
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }} // Un peu plus tard
+          transition={{ duration: 0.8, delay: 0.8 }} 
           style={{ 
-            fontSize: '1.1rem', 
+            fontSize: '1.5rem', 
             color: '#6a1b50', 
             fontWeight: '600', 
             letterSpacing: '0.4em', 
@@ -101,13 +86,13 @@ export default function Hero() {
           }}
         ></motion.div>
 
-        {/* --- TON TEXTE DE PRÉSENTATION ANIMÉ --- */}
+        {/* TEXTE DE PRÉSENTATION ANIMÉ */}
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
           style={{ 
-            fontSize: '1.25rem', 
+            fontSize: '1.4rem', 
             color: '#475569', 
             fontStyle: 'italic', 
             lineHeight: '1.8', 

@@ -28,7 +28,7 @@ export default function Projets() {
       backgroundColor: 'transparent' 
     }}>
       
-      {/* 1. RAPPEL DES AURAS (Même style que Profil) */}
+      {/* RAPPEL DES AURAS (Même style que Profil) */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
         <motion.div 
           animate={{ x: [0, -30, 0], y: [0, 50, 0] }}
@@ -55,7 +55,7 @@ export default function Projets() {
       <div className="max-w-6xl mx-auto" style={{ position: 'relative', zIndex: 10 }}>
         <h2 style={{ 
           textAlign: 'center', color: '#6a1b50', marginBottom: '80px', 
-          fontSize: '3rem', fontFamily: "'Playfair Display', serif", fontWeight: 'bold' 
+          fontSize: '3rem', fontFamily: "'Playfair Display', sans-serif", fontWeight: 'bold' 
         }}>
           Mes Projets
         </h2>
@@ -73,7 +73,7 @@ export default function Projets() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               style={{
-                /* CARTES ROSE/BLEU BOMBER (Comme demandé) */
+                /* CARTES ROSE/BLEU BOMBER */
                 background: 'linear-gradient(135deg, rgba(235, 168, 213, 0.4) 0%, rgba(123, 166, 198, 0.4) 100%)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
@@ -95,7 +95,7 @@ export default function Projets() {
                 <img src={projet.image} alt={projet.titre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
 
-              <h3 style={{ fontSize: '1.7rem', color: '#6a1b50', marginBottom: '10px', fontFamily: "'Playfair Display', serif" }}>{projet.titre}</h3>
+              <h3 style={{ fontSize: '1.7rem', color: '#6a1b50', marginBottom: '10px', fontFamily: "'Playfair Display', sans-serif" }}>{projet.titre}</h3>
               <p style={{ color: '#334155', marginBottom: '30px', fontStyle: 'italic', flexGrow: 1 }}>{projet.desc}</p>
               
               <motion.button 
@@ -113,7 +113,7 @@ export default function Projets() {
         </div>
       </div>
 
-      {/* POPUP (Modèle identique au profil mais pour les détails) */}
+      {/* POPUP */}
       <AnimatePresence>
         {projetSelectionne && (
           <motion.div 
@@ -133,7 +133,7 @@ export default function Projets() {
                 }}
               >
                 <button onClick={() => setProjetSelectionne(null)} style={{ float: 'right', border: 'none', background: '#6a1b50', color: 'white', borderRadius: '50%', width: '40px', height: '40px', cursor: 'pointer' }}>✕</button>
-                <h2 style={{ color: '#6a1b50', fontSize: '2.5rem', marginBottom: '30px', fontFamily: "'Playfair Display', serif" }}>{projetSelectionne.titre}</h2>
+                <h2 style={{ color: '#6a1b50', fontSize: '2.5rem', marginBottom: '30px', fontFamily: "'Playfair Display', sans-serif" }}>{projetSelectionne.titre}</h2>
                 <img src={projetSelectionne.imagePopup || projetSelectionne.image} style={{ width: '100%', borderRadius: '30px', marginBottom: '30px' }} />
                 <div style={{ textAlign: 'left' }}>
                    <p style={{ color: '#EBA8D5', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '10px' }}>Ma Mission</p>

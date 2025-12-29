@@ -7,7 +7,7 @@ export default function ProfilEtCompetences() {
   return (
     <div className="w-full py-20" style={{ position: 'relative', overflow: 'hidden' }}>
       
-      {/* 1. ARRIÈRE-PLAN DYNAMIQUE */}
+      {/* ARRIÈRE-PLAN DYNAMIQUE */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
         <motion.div 
           animate={{ opacity: [0.2, 0.4, 0.2] }}
@@ -24,7 +24,7 @@ export default function ProfilEtCompetences() {
       <section id="profil" className="w-full" style={{ position: 'relative', zIndex: 10 }}>
         <div className="max-w-4xl mx-auto px-6">
           
-          {/* 2. LA CARD EFFET BOMBER */}
+          {/* LA CARD EFFET BOMBER */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function ProfilEtCompetences() {
             }}
           >
             
-            {/* 3. PHOTO FIXE AVEC HALO "RESPIRANT" */}
+            {/* PHOTO FIXE AVEC HALO "RESPIRANT" */}
             <div style={{ position: 'relative', marginBottom: '40px' }}>
               {/* Le halo qui respire derrière l'image */}
               <motion.div
@@ -96,7 +96,7 @@ export default function ProfilEtCompetences() {
             {/* CONTENU TEXTUELLE */}
             <div style={{ width: '100%', maxWidth: '700px' }}>
               <h3 style={{ 
-                fontFamily: "'Playfair Display', serif", 
+                fontFamily: "'Playfair Display', sans-serif", 
                 fontWeight: 'bold', 
                 color: '#6a1b50', 
                 fontSize: '2.2rem',
@@ -113,7 +113,7 @@ export default function ProfilEtCompetences() {
               }} />
 
               <p style={{ 
-                fontFamily: "'Lora', serif", 
+                fontFamily: "'Lora', sans-serif", 
                 color: '#334155',
                 lineHeight: '1.9',
                 marginBottom: '40px',

@@ -17,7 +17,6 @@ export default function Contact() {
       'gRaSdA1Dflm3ClB4d'     
     )
     .then((result) => {
-    // Choisis ta phrase préférée ici :
     setStatus("Votre message a bien pris son envol. Je reviens vers vous très vite. 🌸");
     form.current.reset();
 }, (error) => {
@@ -25,7 +24,6 @@ export default function Contact() {
 });
   };
 
-  // Tes styles restent identiques
   const innerCardStyle = {
     padding: '25px',
     borderRadius: '28px',
@@ -51,14 +49,14 @@ export default function Contact() {
     <section id="contact" style={{ padding: '100px 20px', position: 'relative', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       
       <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-        style={{ color: '#6a1b50', fontSize: '3rem', fontFamily: "'Playfair Display', serif", fontWeight: 'bold', marginBottom: '50px', textAlign: 'center' }}>
+        style={{ color: '#6a1b50', fontSize: '3rem', fontFamily: "'Playfair Display', sans-serif", fontWeight: 'bold', marginBottom: '50px', textAlign: 'center' }}>
         Contactez-moi
       </motion.h2>
 
       <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
         style={{ width: '90%', maxWidth: '650px', background: 'linear-gradient(135deg, rgba(235, 168, 213, 0.3) 0%, rgba(123, 166, 198, 0.3) 100%)', backdropFilter: 'blur(15px)', WebkitBackdropFilter: 'blur(15px)', padding: '50px', borderRadius: '60px', borderTop: '2px solid rgba(255, 255, 255, 0.8)', borderLeft: '2px solid rgba(255, 255, 255, 0.8)', boxShadow: '0 30px 60px rgba(123, 166, 198, 0.2)', zIndex: 10, marginBottom: '40px' }}>
         
-        <p style={{ fontFamily: "'Lora', serif", fontStyle: 'italic', color: '#6a1b50', lineHeight: '1.6', fontSize: '1.5rem', textAlign: 'center', marginBottom: '40px', padding: '15px' }}>
+        <p style={{ fontFamily: "'Lora', sans-serif", fontStyle: 'italic', color: '#6a1b50', lineHeight: '1.6', fontSize: '1.5rem', textAlign: 'center', marginBottom: '40px', padding: '15px' }}>
           "Votre projet mérite une approche douce et personnalisée"
         </p>
 
@@ -67,7 +65,7 @@ export default function Contact() {
           <div style={innerCardStyle}>
             <label style={labelStyle}>Nom complet</label>
             {/* IMPORTANT: AJOUT DE L'ATTRIBUT 'name' pour EmailJS */}
-            <input type="text" name="from_name" placeholder="Marie Durant" style={inputStyle} required />
+            <input type="text" name="from_name" placeholder="Iris Durant" style={inputStyle} required />
           </div>
 
           <div style={innerCardStyle}>
