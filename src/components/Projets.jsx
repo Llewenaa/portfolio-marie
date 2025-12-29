@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-// Import des images
 import img1 from '../assets/echo-dun-regard.png';
 import img2 from '../assets/murmureDeOcean.png';
 import img3 from '../assets/bien-etre-animalier.png';
@@ -27,7 +25,6 @@ export default function Projets() {
       padding: '100px 20px', 
       position: 'relative', 
       overflow: 'hidden',
-      /* Suppression du fond blanc pour hériter du fond global du body */
       backgroundColor: 'transparent' 
     }}>
       

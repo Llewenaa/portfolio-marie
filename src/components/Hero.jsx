@@ -30,7 +30,6 @@ export default function Hero() {
         />
       </div>
 
-      {/* Le Cercle avec l'effet Glassmorphism à l'intérieur */}
       <motion.div
         animate={{ y: [0, -25, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -41,18 +40,11 @@ export default function Hero() {
           width: '560px', 
           height: '560px', 
           borderRadius: '50%', 
-          
-         
           backgroundColor: 'rgba(255, 255, 255, 0.3)', 
-          backdropFilter: 'blur(12px)',              
+          backdropFilter: 'blur(12px)',               
           WebkitBackdropFilter: 'blur(12px)',         
-          
-          /* Bordure rose très fine et subtile */
           border: '3px solid rgba(235, 168, 213, 1)', 
-          
-          /* Ombre portée légère pour le relief */
           boxShadow: '0 25px 50px rgba(0, 0, 0, 0.05)',
-          
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -61,47 +53,71 @@ export default function Hero() {
           padding: '50px'
         }}
       >
-        <h1 style={{ 
-          fontSize: '5.5rem', 
-          fontWeight: 'bold', 
-          color: '#6a1b50', // Ton bordeaux
-          margin: 0, 
-          fontFamily: "'Playfair Display', serif" 
-        }}>
+        {/* --- TON TITRE ANIMÉ ICI ---
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2.5 }} // Se lance après le loader
+          style={{ 
+            fontSize: '5.5rem', 
+            fontWeight: 'bold', 
+            color: '#6a1b50', 
+            margin: 0, 
+            fontFamily: "'Playfair Display', serif" 
+          }}
+        >
           Marie
-        </h1>
+        </motion.h1> */}
 
-        <h2 style={{ 
-          fontSize: '1.1rem', 
-          color: '#7BA6C6', // Ton bleu
-          fontWeight: '600', 
-          letterSpacing: '0.4em', 
-          textTransform: 'uppercase', 
-          marginTop: '25px'
-        }}>
+        {/* --- TON SOUS-TITRE ANIMÉ --- */}
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }} // Un peu plus tard
+          style={{ 
+            fontSize: '1.1rem', 
+            color: '#6a1b50', 
+            fontWeight: '600', 
+            letterSpacing: '0.4em', 
+            textTransform: 'uppercase', 
+            marginTop: '10px',
+            fontWeight: 'bold', 
+            fontFamily: "'Lora', sans-serif"
+          }}
+        >
           Bienvenue sur mon portfolio
-        </h2>
+        </motion.h2>
 
-       
-        <div style={{ 
-          width: '45px', 
-          height: '2px', 
-          backgroundColor: '#EBA8D5', 
-          margin: '35px auto',
-          borderRadius: '10px'
-        }}></div>
+        <motion.div 
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          style={{ 
+            width: '45px', 
+            height: '2px', 
+            backgroundColor: '#EBA8D5', 
+            margin: '60px auto',
+            borderRadius: '10px'
+          }}
+        ></motion.div>
 
-        <p style={{ 
-          fontSize: '1.25rem', 
-          color: '#475569', 
-          fontStyle: 'italic', 
-          lineHeight: '1.8', 
-          maxWidth: '380px', 
-          margin: 0, 
-          fontFamily: "'Lora', serif" 
-        }}>
+        {/* --- TON TEXTE DE PRÉSENTATION ANIMÉ --- */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          style={{ 
+            fontSize: '1.25rem', 
+            color: '#475569', 
+            fontStyle: 'italic', 
+            lineHeight: '1.8', 
+            maxWidth: '380px',  
+            fontFamily: "'Lora', sans-serif",
+            textAlign: 'center',
+          }}
+        >
           "L'empathie du social au service du développement web."
-        </p>
+        </motion.p>
       </motion.div>
     </section>
   );
