@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 
 export default function Contact() {
   const innerCardStyle = {
-    padding: '30px',
+    padding: '25px',
     borderRadius: '28px',
-    border: '1px solid rgba(226, 232, 240, 0.8)',
-    backgroundColor: '#ffffff', 
+    /* Effet Glass subtil pour les champs internes */
+    border: '1px solid rgba(255, 255, 255, 0.6)',
+    backgroundColor: 'rgba(255, 255, 255, 0.3)', 
     marginBottom: '20px',
-    boxShadow: '0 4px 10px rgba(99, 81, 71, 0.02)',
-    transition: '0.3s',
+    boxShadow: '0 4px 10px rgba(123, 166, 198, 0.05)',
     textAlign: 'left'
   };
 
@@ -17,11 +17,10 @@ export default function Contact() {
     display: 'block',
     fontSize: '13px',
     fontWeight: 'bold',
-    color: '#7BA6C6',
+    color: '#6a1b50', // Ton bordeaux
     marginBottom: '10px',
     letterSpacing: '2px',
     textTransform: 'uppercase',
-    fontStyle: 'italic',
     fontFamily: "'Lora', sans-serif"
   };
 
@@ -29,67 +28,89 @@ export default function Contact() {
     width: '100%',
     padding: '12px 15px',
     borderRadius: '12px',
-    border: '1px solid #e2e8f0',
+    border: '1px solid rgba(123, 166, 198, 0.2)',
     outline: 'none',
-    backgroundColor: '#fcfcfc',
-    color: '#635147',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    color: '#334155',
     fontFamily: "'Lora', sans-serif",
     fontSize: '0.95rem',
-    boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)',
-    transition: 'border-color 0.3s',
+    transition: 'all 0.3s ease',
     boxSizing: 'border-box'
   };
 
   return (
-    <section id="contact" className="py-20 bg-white flex flex-col items-center w-full min-h-screen overflow-x-hidden">
+    <section id="contact" style={{ 
+      padding: '100px 20px', 
+      position: 'relative', 
+      overflow: 'hidden',
+      backgroundColor: 'transparent', // On laisse voir le fond du body
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }}>
       
-      
+      {/* 1. TITRE ET INTRODUCTION */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-full flex flex-col items-center text-center mb-20 px-4"
+        style={{ textAlign: 'center', marginBottom: '60px', zIndex: 10 }}
       >
-        <h1 style={{ 
-          color: '#635147', 
-          marginBottom: '30px', 
-          fontSize: '2.8rem', 
-          fontFamily: "'Playfair Display', sans-serif", 
+        <h2 style={{ 
+          color: '#6a1b50', 
+          fontSize: '3rem', 
+          fontFamily: "'Playfair Display', serif", 
           fontWeight: 'bold',
-          textAlign: 'center'
+          marginBottom: '20px'
         }}>
           Contactez-moi
-        </h1>
+        </h2>
       
         <p style={{ 
-            fontFamily: "'Lora', sans-serif", 
+            fontFamily: "'Lora', serif", 
             fontStyle: 'italic',
-            color: '#64748b',
+            color: '#475569',
             lineHeight: '1.8',
             maxWidth: '550px',
             fontSize: '1.15rem',
-            textAlign: 'center', 
             margin: '0 auto',
-            boxShadow: '0 8px 15px #7BA6C6aa',
-            backgroundColor: '#fdf2f8',
-            padding: '15px 20px',
-            borderRadius: '20px',
-            marginBottom: '50px'
+            /* Effet Glass sur le petit texte */
+            backgroundColor: 'rgba(255, 255, 255, 0.4)',
+            backdropFilter: 'blur(5px)',
+            padding: '15px 30px',
+            borderRadius: '50px',
+            border: '1px solid rgba(235, 168, 213, 0.4)',
+            boxShadow: '0 10px 30px rgba(123, 166, 198, 0.1)'
           }}
         >
           Votre projet mérite une approche douce et personnalisée
         </p>
       </motion.div>
 
-      {/*Card principale */}
+      {/* 2. CARD PRINCIPALE GLASS-BOMBER */}
       <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="w-[90%] max-w-[650px] bg-[#FDF2F0] p-8 md:p-12 rounded-[50px] shadow-xl shadow-[#635147]/5 border border-[#7BA6C6]/5 mb-16"
+        transition={{ duration: 0.8 }}
+        style={{ 
+          width: '90%', 
+          maxWidth: '650px', 
+          /* Fond mélangé Rose/Bleu comme tes projets */
+          background: 'linear-gradient(135deg, rgba(235, 168, 213, 0.3) 0%, rgba(123, 166, 198, 0.3) 100%)',
+          backdropFilter: 'blur(15px)',
+          WebkitBackdropFilter: 'blur(15px)',
+          padding: '50px', 
+          borderRadius: '60px',
+          /* Effet Bomber */
+          borderTop: '2px solid rgba(255, 255, 255, 0.8)',
+          borderLeft: '2px solid rgba(255, 255, 255, 0.8)',
+          boxShadow: '0 30px 60px rgba(123, 166, 198, 0.2)',
+          zIndex: 10,
+          marginBottom: '40px'
+        }}
       >
-        <form id="contact-form" className="w-full">
+        <form id="contact-form" style={{ width: '100%' }}>
           <div style={innerCardStyle}>
             <label style={labelStyle}>Nom complet</label>
             <input type="text" placeholder="Marie Durant" style={inputStyle} />
@@ -111,32 +132,30 @@ export default function Contact() {
         </form>
       </motion.div>
 
-     
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <motion.button 
-          form="contact-form"
-          type="submit"
-          whileHover={{ scale: 1.05, backgroundColor: '#635147' }}
-          whileTap={{ scale: 0.95 }}
-          style={{
-            backgroundColor: '#7BA6C6',
-            color: 'white',
-            padding: '14px 50px', 
-            borderRadius: '50px',
-            border: 'none',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            fontSize: '1rem',
-            letterSpacing: '1px',
-            boxShadow: '0 8px 20px rgba(123, 166, 198, 0.2)',
-            transition: 'all 0.3s ease',
-            marginLeft: 'auto',
-            marginRight: 'auto'
-          }}
-        >
-          Envoyer
-        </motion.button>
-      </div>
+      {/* 3. BOUTON ENVOYER */}
+      <motion.button 
+        form="contact-form"
+        type="submit"
+        whileHover={{ scale: 1.05, backgroundColor: '#6a1b50', boxShadow: '0 10px 25px rgba(106, 27, 80, 0.3)' }}
+        whileTap={{ scale: 0.95 }}
+        style={{
+          backgroundColor: '#7BA6C6',
+          color: 'white',
+          padding: '16px 60px', 
+          borderRadius: '50px',
+          border: 'none',
+          fontWeight: 'bold',
+          cursor: 'pointer',
+          fontSize: '1rem',
+          letterSpacing: '2px',
+          textTransform: 'uppercase',
+          boxShadow: '0 8px 20px rgba(123, 166, 198, 0.2)',
+          transition: 'all 0.3s ease',
+          zIndex: 10
+        }}
+      >
+        Envoyer
+      </motion.button>
       
     </section>
   );

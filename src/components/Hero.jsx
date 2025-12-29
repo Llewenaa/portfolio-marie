@@ -11,78 +11,94 @@ export default function Hero() {
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center', 
-        backgroundColor: '#ffffff',
+        background: 'radial-gradient(circle at center, #ffffff 0%, #f3f7fa 50%, #fcecf4 100%)',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
-      {/* 1. Fonds flous en arrière-plan */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <div style={{ position: 'absolute', top: '15%', left: '15%', width: '450px', height: '450px', backgroundColor: '#EBA8D5', borderRadius: '50%', filter: 'blur(110px)', opacity: 0.5 }}></div>
-        <div style={{ position: 'absolute', bottom: '10%', right: '10%', width: '550px', height: '550px', backgroundColor: '#7BA6C6', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.5 }}></div>
+      
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], x: [0, 50, 0] }}
+          transition={{ duration: 15, repeat: Infinity }}
+          style={{ position: 'absolute', top: '15%', left: '10%', width: '500px', height: '500px', backgroundColor: '#EBA8D5', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.2 }}
+        />
+        <motion.div 
+          animate={{ scale: [1, 1.3, 1], x: [0, -50, 0] }}
+          transition={{ duration: 18, repeat: Infinity }}
+          style={{ position: 'absolute', bottom: '15%', right: '10%', width: '600px', height: '600px', backgroundColor: '#7BA6C6', borderRadius: '50%', filter: 'blur(130px)', opacity: 0.2 }}
+        />
       </div>
 
-      {/* 2. Le Cercle Glassmorphism */}
+      {/* Le Cercle avec l'effet Glassmorphism à l'intérieur */}
       <motion.div
-        animate={{ y: [0, -15, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        animate={{ y: [0, -25, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{ scale: 1.02 }}
         style={{ 
           position: 'relative',
           zIndex: 10,
-          width: '520px', 
-          height: '520px', 
+          width: '560px', 
+          height: '560px', 
           borderRadius: '50%', 
-          backgroundColor: 'rgba(255, 255, 255, 0.25)', 
-          backdropFilter: 'blur(20px)', 
-          WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgb(235, 168, 213)',
-          boxShadow: '0 20px 40px rgba(123, 166, 198, 0.2)',
+          
+         
+          backgroundColor: 'rgba(255, 255, 255, 0.3)', 
+          backdropFilter: 'blur(12px)',              
+          WebkitBackdropFilter: 'blur(12px)',         
+          
+          /* Bordure rose très fine et subtile */
+          border: '3px solid rgba(235, 168, 213, 1)', 
+          
+          /* Ombre portée légère pour le relief */
+          boxShadow: '0 25px 50px rgba(0, 0, 0, 0.05)',
+          
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          padding: '50px',
-          boxSizing: 'border-box'
+          padding: '50px'
         }}
       >
         <h1 style={{ 
-          fontSize: '4.8rem', 
+          fontSize: '5.5rem', 
           fontWeight: 'bold', 
-          color: '#6a1b50', 
-          margin: 0,
-          fontFamily: "'Playfair Display', serif"
+          color: '#6a1b50', // Ton bordeaux
+          margin: 0, 
+          fontFamily: "'Playfair Display', serif" 
         }}>
           Marie
         </h1>
-        
+
         <h2 style={{ 
           fontSize: '1.1rem', 
-          color: '#7BA6C6', 
+          color: '#7BA6C6', // Ton bleu
           fontWeight: '600', 
-          letterSpacing: '0.3em', 
+          letterSpacing: '0.4em', 
           textTransform: 'uppercase', 
-          marginTop: '15px'
+          marginTop: '25px'
         }}>
           Bienvenue sur mon portfolio
         </h2>
 
+       
         <div style={{ 
-          width: '40px', 
-          height: '3px', 
+          width: '45px', 
+          height: '2px', 
           backgroundColor: '#EBA8D5', 
-          margin: '25px auto', 
+          margin: '35px auto',
           borderRadius: '10px'
         }}></div>
 
         <p style={{ 
-          fontSize: '1.2rem', 
+          fontSize: '1.25rem', 
           color: '#475569', 
           fontStyle: 'italic', 
-          lineHeight: '1.7', 
-          maxWidth: '340px', 
-          margin: 0,
-          fontFamily: "'Lora', serif"
+          lineHeight: '1.8', 
+          maxWidth: '380px', 
+          margin: 0, 
+          fontFamily: "'Lora', serif" 
         }}>
           "L'empathie du social au service du développement web."
         </p>
