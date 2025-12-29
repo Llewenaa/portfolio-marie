@@ -30,7 +30,6 @@ export default function Projets() {
         MES PROJETS
       </h2>
 
-     
       <div style={{ 
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
@@ -58,9 +57,20 @@ export default function Projets() {
               <p style={{ color: '#64748b', marginBottom: '25px', fontStyle: 'italic', fontFamily: "'Lora', sans-serif" }}>{projet.desc}</p>
             </div>
             
+            {/* LE BOUTON EST PLACÉ ICI */}
             <button 
               onClick={() => setProjetSelectionne(projet)}
-              style={{ padding: '12px 30px', borderRadius: '50px', border: '1.5px solid #7BA6C6', background: 'none', backgroundColor: '#7BA6C6', color: '#ffffff', cursor: 'pointer', fontWeight: 'bold' }}
+              style={{ 
+                padding: '12px 30px', 
+                borderRadius: '50px', 
+                border: '1.5px solid #7BA6C6', 
+                background: 'none', 
+                backgroundColor: '#7BA6C6', 
+                color: '#ffffff', 
+                cursor: 'pointer', 
+                fontWeight: 'bold', 
+                fontFamily: "'Lora', sans-serif" 
+              }}
             >
               Voir le projet
             </button>
@@ -68,7 +78,7 @@ export default function Projets() {
         ))}
       </div>
 
-      {/* FENÊTRE PLEIN ÉCRAN */}
+      {/* FENÊTRE PLEIN ÉCRAN (POPUP) */}
       {projetSelectionne && (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: '#ffffff', zIndex: 9999, overflowY: 'auto' }}>
           <button 

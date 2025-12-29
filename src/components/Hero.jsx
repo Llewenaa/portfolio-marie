@@ -16,59 +16,76 @@ export default function Hero() {
         overflow: 'hidden'
       }}
     >
-     
+      {/* 1. Fonds flous en arrière-plan */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <div style={{ position: 'absolute', top: '20%', left: '20%', width: '300px', height: '300px', backgroundColor: '#fdf2f8', borderRadius: '50%', filter: 'blur(80px)' }}></div>
-        <div style={{ position: 'absolute', bottom: '20%', right: '20%', width: '400px', height: '400px', backgroundColor: '#eff6ff', borderRadius: '50%', filter: 'blur(80px)' }}></div>
+        <div style={{ position: 'absolute', top: '15%', left: '15%', width: '450px', height: '450px', backgroundColor: '#EBA8D5', borderRadius: '50%', filter: 'blur(110px)', opacity: 0.5 }}></div>
+        <div style={{ position: 'absolute', bottom: '10%', right: '10%', width: '550px', height: '550px', backgroundColor: '#7BA6C6', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.5 }}></div>
       </div>
 
-      
-      <motion.div 
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      {/* 2. Le Cercle Glassmorphism */}
+      <motion.div
+        animate={{ y: [0, -15, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         style={{ 
           position: 'relative',
           zIndex: 10,
-          width: '450px', 
-          height: '450px', 
+          width: '520px', 
+          height: '520px', 
           borderRadius: '50%', 
-          backgroundColor: '#f8fafc', 
-          border: '4px solid #ffffff',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+          backgroundColor: 'rgba(255, 255, 255, 0.25)', 
+          backdropFilter: 'blur(20px)', 
+          WebkitBackdropFilter: 'blur(20px)',
+          border: '1px solid rgb(235, 168, 213)',
+          boxShadow: '0 20px 40px rgba(123, 166, 198, 0.2)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          padding: '40px',
-          overflow: 'hidden'
+          padding: '50px',
+          boxSizing: 'border-box'
         }}
       >
-       
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          opacity: 0.1,
-          pointerEvents: 'none',
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        <h1 style={{ 
+          fontSize: '4.8rem', 
+          fontWeight: 'bold', 
+          color: '#6a1b50', 
+          margin: 0,
+          fontFamily: "'Playfair Display', serif"
+        }}>
+          Marie
+        </h1>
+        
+        <h2 style={{ 
+          fontSize: '1.1rem', 
+          color: '#7BA6C6', 
+          fontWeight: '600', 
+          letterSpacing: '0.3em', 
+          textTransform: 'uppercase', 
+          marginTop: '15px'
+        }}>
+          Bienvenue sur mon portfolio
+        </h2>
+
+        <div style={{ 
+          width: '40px', 
+          height: '3px', 
+          backgroundColor: '#EBA8D5', 
+          margin: '25px auto', 
+          borderRadius: '10px'
         }}></div>
 
-        
-        <div style={{ position: 'relative', zIndex: 20 }}>
-          <h1 style={{ fontSize: '4rem', fontWeight: 'bold', color: '#6a1b50', margin: 0 }}>
-            Marie
-          </h1>
-          
-          <h2 style={{ fontSize: '1.5rem', color: '#7BA6C6', fontWeight: '500', letterSpacing: '0.2em', textTransform: 'uppercase', margin: '10px 0' }}>
-        Bienvenue sur mon portfolio
-          </h2>
-
-          <div style={{ width: '50px', height: '2px', backgroundColor: '#f9a8d4', margin: '20px auto' }}></div>
-
-          <p style={{ fontSize: '1.1rem', color: '#475569', fontStyle: 'italic', lineHeight: '1.6', maxWidth: '300px' }}>
-            "L'empathie du social au service du développement web."
-          </p>
-        </div>
+        <p style={{ 
+          fontSize: '1.2rem', 
+          color: '#475569', 
+          fontStyle: 'italic', 
+          lineHeight: '1.7', 
+          maxWidth: '340px', 
+          margin: 0,
+          fontFamily: "'Lora', serif"
+        }}>
+          "L'empathie du social au service du développement web."
+        </p>
       </motion.div>
     </section>
   );

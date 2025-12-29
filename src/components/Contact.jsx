@@ -69,7 +69,12 @@ export default function Contact() {
             maxWidth: '550px',
             fontSize: '1.15rem',
             textAlign: 'center', 
-            margin: '0 auto'   
+            margin: '0 auto',
+            boxShadow: '0 8px 15px #7BA6C6aa',
+            backgroundColor: '#fdf2f8',
+            padding: '15px 20px',
+            borderRadius: '20px',
+            marginBottom: '50px'
           }}
         >
           Votre projet mérite une approche douce et personnalisée

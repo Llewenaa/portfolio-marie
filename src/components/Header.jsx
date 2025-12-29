@@ -39,7 +39,7 @@ export default function Header() {
         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
       />
 
-      {/* NAVIGATION (Accueil retiré) */}
+      {/* NAVIGATION  */}
       <nav style={{ 
         display: 'flex', 
         gap: '30px', 
@@ -59,7 +59,7 @@ export default function Header() {
         </a>
         <a 
           href="#contact" 
-          title="Contact" 
+          title="Contact"
           style={contactCircleStyle}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = '#7BA6C6';
@@ -82,8 +82,8 @@ export default function Header() {
 } 
 
 const linkStyle = { 
-   backgroundColor: '#EBA8D5',
-   color: 'white',
+  backgroundColor: '#EBA8D5',
+  color: 'white',
   width: '45px',
   height: '45px',
   display: 'flex',
